@@ -108,7 +108,7 @@ class AppTheme {
         color: onPrimaryLight,
       ),
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: cardLight,
       elevation: 1.0, // Subtle depth for organization
       shadowColor: shadowLight,
@@ -347,7 +347,7 @@ class AppTheme {
         color: onSurfaceDark,
       ),
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: cardDark,
       elevation: 1.0,
       shadowColor: shadowDark,
