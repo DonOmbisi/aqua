@@ -1,0 +1,2 @@
+C:/Users/donmi/Downloads/aqua_horizon/aqua_horizon/android/app/.cxx/RelWithDebInfo/6k6t2y13/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/donmi/Downloads/aqua_horizon/aqua_horizon/android/app/.cxx/RelWithDebInfo/6k6t2y13/x86_64/CMakeFiles/rebuild_cache.dir

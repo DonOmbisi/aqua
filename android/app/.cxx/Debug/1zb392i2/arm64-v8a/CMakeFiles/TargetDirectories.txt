@@ -1,0 +1,2 @@
+C:/Users/donmi/Downloads/aqua_horizon/aqua_horizon/android/app/.cxx/Debug/1zb392i2/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/donmi/Downloads/aqua_horizon/aqua_horizon/android/app/.cxx/Debug/1zb392i2/arm64-v8a/CMakeFiles/rebuild_cache.dir

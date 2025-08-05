@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "C:\\Users\\donmi\\flutter\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\donmi\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\donmi\\Downloads\\aqua_horizon\\aqua_horizon\\android\\app\\.cxx\\RelWithDebInfo\\6k6t2y13\\armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\donmi\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\donmi\\Downloads\\aqua_horizon\\aqua_horizon\\android\\app\\.cxx\\RelWithDebInfo\\6k6t2y13\\armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}
