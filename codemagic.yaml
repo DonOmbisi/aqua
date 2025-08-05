@@ -9,6 +9,8 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.aqua_horizon.app.testProject
+      groups:
+        - aqua_horizon_env  # Reference to environment variable group
       vars:
         APP_ID: 1001
         BUNDLE_ID: "com.aqua_horizon.app.testProject"
@@ -37,9 +39,10 @@ workflows:
       - name: Build ipa for distribution
         script: |
           flutter build ipa --release \
+            --dart-define=SUPABASE_URL="$SUPABASE_URL" \
+            --dart-define=SUPABASE_ANON_KEY="$SUPABASE_ANON_KEY" \
             --build-name=1.0.0 \
-            --build-number=$(($(app-store-connect get-latest-app-store-build-number "$APP_ID") + 1)) \
-            --export-options-plist=/Users/builder/export_options.plist
+            --build-number=$(($(app-store-connect get-latest-app-store-build-number "$APP_ID") + 1))
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
