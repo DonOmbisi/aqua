@@ -1,18 +1,12 @@
 workflows:
   ios-workflow:
-    name: iOS Workflow
+    name: iOS Workflow - Development Build
     max_build_duration: 120
     instance_type: mac_mini_m1
-    integrations:
-      app_store_connect: codemagic
     environment:
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.aqua_horizon.app.testProject
       groups:
         - aqua_horizon_env  # Reference to environment variable group
       vars:
-        APP_ID: 1001
         BUNDLE_ID: "com.aqua_horizon.app.testProject"
         XCODE_WORKSPACE: "Runner.xcworkspace"
         XCODE_SCHEME: "Runner"
@@ -20,9 +14,6 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Set up code signing settings on Xcode project
-        script: |
-          xcode-project use-profiles
       - name: Get Flutter packages
         script: |
           flutter packages pub get
@@ -36,15 +27,14 @@ workflows:
         script: |
           flutter test
         ignore_failure: true
-      - name: Build ipa for distribution
+      - name: Build iOS app
         script: |
-          flutter build ipa --release \
+          flutter build ios --release \
             --dart-define=SUPABASE_URL="$SUPABASE_URL" \
             --dart-define=SUPABASE_ANON_KEY="$SUPABASE_ANON_KEY" \
-            --build-name=1.0.0 \
-            --build-number=$(($(app-store-connect get-latest-app-store-build-number "$APP_ID") + 1))
+            --no-codesign
     artifacts:
-      - build/ios/ipa/*.ipa
+      - build/ios/Runner.app
       - /tmp/xcodebuild_logs/*.log
       - flutter_drive.log
     publishing:
@@ -54,9 +44,3 @@ workflows:
         notify:
           success: true
           failure: false
-      app_store_connect:
-        auth: integration
-        
-        # Configuration for App Store Connect (optional)
-        submit_to_testflight: false
-        submit_to_app_store: false
